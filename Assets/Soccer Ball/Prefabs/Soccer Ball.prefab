@@ -114,3 +114,5 @@ MonoBehaviour:
   goal1: {fileID: 0}
   goal2: {fileID: 0}
   speed: 5
+  star: {fileID: 6661073620808731575, guid: 7d05e4127f42c914aa5d5902442e058e, type: 3}
+  isGoal: 0

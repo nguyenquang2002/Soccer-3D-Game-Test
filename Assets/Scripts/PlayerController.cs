@@ -85,8 +85,37 @@ public class PlayerController : MonoBehaviour
             if (collider.CompareTag("Ball"))
             {
                 collider.gameObject.GetComponent<BallController>().KickBall();
+                cam.GetComponent<CameraController>().FollowBall(collider.gameObject.transform);
             }
         }
         
+    }
+    public void AutoKick()
+    {
+        BallController[] allBalls = FindObjectsOfType<BallController>();
+        float furthestDistance = 0f;
+        foreach(BallController ball in allBalls)
+        {
+            if (!ball.isGoal)
+            {
+                float ballDistance = Vector3.Distance(ball.transform.position, transform.position);
+                if (ballDistance > furthestDistance)
+                {
+                    furthestDistance = ballDistance;
+                }
+            }
+        }
+        foreach (BallController ball in allBalls)
+        {
+            if (!ball.isGoal)
+            {
+                float ballDistance = Vector3.Distance(ball.transform.position, transform.position);
+                if (ballDistance >= furthestDistance)
+                {
+                    ball.KickBall();
+                    cam.GetComponent<CameraController>().FollowBall(ball.gameObject.transform);
+                }
+            }
+        }
     }
 }

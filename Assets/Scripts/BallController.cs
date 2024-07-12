@@ -6,6 +6,8 @@ public class BallController : MonoBehaviour
 {
     [SerializeField] Transform goal1, goal2;
     [SerializeField] float speed = 5.0f;
+    [SerializeField] GameObject star;
+    public bool isGoal = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,22 @@ public class BallController : MonoBehaviour
         while (Vector3.Distance(transform.position, goal.position) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(transform.position, goal.position, speed * Time.deltaTime);
+            isGoal = true;
             yield return null;
+        }
+        PlayGoalParticle();
+    }
+    void PlayGoalParticle()
+    {
+        if (star != null)
+        {
+            GameObject particleInstance = Instantiate(star, transform.position, Quaternion.identity);
+            ParticleSystem particleSystem = particleInstance.GetComponent<ParticleSystem>();
+            if (particleSystem != null)
+            {
+                particleSystem.Play();
+            }
+            Destroy(particleInstance, 2f);
         }
     }
 }
