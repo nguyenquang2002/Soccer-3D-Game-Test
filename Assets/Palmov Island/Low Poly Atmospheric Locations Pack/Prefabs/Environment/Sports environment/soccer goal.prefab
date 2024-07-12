@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5460123683461710867}
   - component: {fileID: 7791991268107497689}
   - component: {fileID: 6535806213514110174}
+  - component: {fileID: 3181977631045771896}
   m_Layer: 0
   m_Name: soccer goal
   m_TagString: Untagged
@@ -95,5 +96,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.9348977, y: 2.0993555, z: 1.6116368}
-  m_Center: {x: 0, y: 1.0496777, z: -0.0000005364418}
+  m_Size: {x: 3.9348977, y: 2.0993555, z: 0.8606666}
+  m_Center: {x: 1.2622163e-15, y: 1.0496777, z: -0.33882052}
+--- !u!65 &3181977631045771896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8584505987326644492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9348986, y: 2.0993555, z: 0.6275033}
+  m_Center: {x: 1.1274051e-16, y: 1.0496777, z: 0.49206647}

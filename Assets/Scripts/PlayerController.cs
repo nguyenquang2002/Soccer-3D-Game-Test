@@ -77,4 +77,16 @@ public class PlayerController : MonoBehaviour
         }
         kickButton.gameObject.SetActive(ballNearby);
     }
+    public void Kick()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, checkRadius);
+        foreach (Collider collider in hitColliders)
+        {
+            if (collider.CompareTag("Ball"))
+            {
+                collider.gameObject.GetComponent<BallController>().KickBall();
+            }
+        }
+        
+    }
 }
